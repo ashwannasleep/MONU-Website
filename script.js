@@ -144,19 +144,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const storeButton = document.querySelector('.store-button');
     if (storeButton) {
         storeButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             // Add loading state
             const originalContent = this.innerHTML;
-            this.innerHTML = '<span>Loading...</span>';
+            this.innerHTML = '<span>Opening App Store...</span>';
             this.style.opacity = '0.7';
             
-            // Simulate loading (replace with actual App Store redirect)
+            // Reset after a short delay
             setTimeout(() => {
                 this.innerHTML = originalContent;
                 this.style.opacity = '1';
-                alert('App Store link will be added when your app is published!');
-            }, 1500);
+            }, 1000);
         });
     }
     
