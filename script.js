@@ -5,12 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
+                e.preventDefault();
                 const headerHeight = 70; // Height of fixed header
                 const targetPosition = targetSection.offsetTop - headerHeight;
                 
@@ -139,23 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', handleResize);
 });
 
-// Add loading animation for app store button
-document.addEventListener('DOMContentLoaded', function() {
-    const storeButton = document.querySelector('.store-button');
-    if (storeButton) {
-        storeButton.addEventListener('click', function(e) {
-            // Add loading state
-            const originalContent = this.innerHTML;
-            this.innerHTML = '<span>Opening App Store...</span>';
-            this.style.opacity = '0.7';
-            
-            // Reset after a short delay
-            setTimeout(() => {
-                this.innerHTML = originalContent;
-                this.style.opacity = '1';
-            }, 1000);
-        });
-    }
+// App Store button functionality - let the link work normally
     
     // Interactive App Preview Tabs
     const previewTabs = document.querySelectorAll('.preview-tab');
